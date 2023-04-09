@@ -1,2 +1,2 @@
 # Random-animations
-practice animations etc
+play around and practice animations etc
