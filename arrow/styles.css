@@ -1,0 +1,44 @@
+body{
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+}
+
+:root{
+    --dark-color:#B81919;
+    --light-color:#D27E7E;
+}
+
+svg{
+    cursor: pointer;
+}
+#darkGroup{
+    fill: var(--dark-color);
+}
+#lightGroup{
+    fill: var(--light-color);
+}
+
+#dark1,
+#light1,
+#dark2{
+    transition: all 1s ease;
+}
+
+#dark2{
+    transform: translateX(-100%);
+}
+
+svg:hover #light1{
+ transform: translateX(20%);
+}
+
+svg:hover #dark1{
+    transform: translateX(40%);
+    opacity: 0;
+}
+
+svg:hover #dark2{
+    transform: translateX(0%);
+    
+}
