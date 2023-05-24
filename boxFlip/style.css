@@ -28,6 +28,7 @@ body{
     transition: transform 300ms ease-in-out;
     display: grid;
     place-content: center;
+    pointer-events: none; /* this will stop it from activating even when hovering over the animated box and will only get triggered when over the trigger*/
 }
 
 /* .trigger:hover .box {
