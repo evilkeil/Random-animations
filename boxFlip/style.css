@@ -23,9 +23,9 @@ body{
     transition: transform 300ms ease-in-out;
 }
 
-.trigger:hover .box {
+/* .trigger:hover .box {
     transform: translate(200px,150px) rotate(20deg);
-}
+} */
 .animate{
     transform: translate(200px,150px) rotate(20deg);
 }
