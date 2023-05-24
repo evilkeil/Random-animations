@@ -20,4 +20,12 @@ body{
     border: 2px solid black;
     width: 200px;
     height: 200px;
+    transition: transform 300ms ease-in-out;
+}
+
+.trigger:hover .box {
+    transform: translate(200px,150px) rotate(20deg);
+}
+.animate{
+    transform: translate(200px,150px) rotate(20deg);
 }
