@@ -29,19 +29,19 @@ body{
     width: 100px;
   }
   
-  .growleft {
-    animation: grow 1s forwards;
+  .grow-right {
+    animation: growRight 1s forwards;
     animation-timing-function: ease-in-out;
   }
   
-  .shrink-left {
+  .shrink-right {
     animation: shrink 1s forwards;
     animation-timing-function: ease-in-out;
   }
   
   /* keyframes */
   
-  @keyframes grow {
+  @keyframes growRight {
     0% {
       width: 100px;
       height: 100px;
