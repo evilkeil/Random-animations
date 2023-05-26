@@ -1,5 +1,6 @@
 const box = document.querySelector('.box');
 const trigger = document.querySelector('.trigger');
+let animationDirection ="";
 
 // Randomly select the animation direction
 function getRandomDirection() {
@@ -7,10 +8,16 @@ function getRandomDirection() {
   const randomIndex = Math.floor(Math.random() * directions.length);
   return directions[randomIndex];
 }
+//check whether a direction is generated or not
+function checkDirection(){
+    if (animationDirection ===""){
+        return true;
+    }else return false;
+}
 
 // Toggle animation classes based on the current state
 function toggleAnimation() {
-    let animationDirection = getRandomDirection();
+    animationDirection = getRandomDirection();
     console.log(animationDirection);
     if (!box.classList.contains('original')) {
         box.classList.remove('shrink-up', 'shrink-down', 'shrink-left', 'shrink-right');
