@@ -40,9 +40,22 @@ function animate(grow,shrink){
 }
 
 
+function removeAllClassesExceptOne(keepClass) {
+    const classNames = box.className.split(' ');
+    for (let i = classNames.length - 1; i >= 0; i--) {
+      if (classNames[i] !== keepClass) {
+        box.classList.remove(classNames[i]);
+      }
+    }
+  }
+
+
+
+//event listner
+
 trigger.addEventListener('click',function(){
-    let rand = Math.floor(Math.random() * 4);
-    growRight();
+    let rand = Math.floor(Math.random() * 2);
+    growUp();
 })
 
 
