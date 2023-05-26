@@ -1,61 +1,57 @@
-// const box = document.querySelector('.box');
-// const trigger = document.querySelector('.trigger');
-
-// trigger.addEventListener('click',function(){
-//     if (box.classList.contains("growleft") && !(box.classList.contains("shrink-left")) ){
-//         box.classList.remove('growleft');
-//         box.classList.add('shrink-left');
-//     }
-//     else if (box.classList.contains("shrink-left") && !(box.classList.contains("growleft")) ){
-//         box.classList.add('growleft');
-//         box.classList.remove('shrink-left')
-//     }else if (!(box.classList.contains("shrink-left")) && !(box.classList.contains("growleft")) ){
-//         box.classList.add('growleft');
-//     }
-// })
-
 const box = document.querySelector('.box');
 const trigger = document.querySelector('.trigger');
+let animationDirection ="";
 
-//arguments 
+// Randomly select the animation direction
+function getRandomDirection() {
+  const directions = ['grow-up', 'grow-down', 'grow-left', 'grow-right'];
+  const randomIndex = Math.floor(Math.random() * directions.length);
+  return directions[randomIndex];
+}
+//check whether a direction is generated or not
+function checkDirection(){
+    if (!(animationDirection ==="")){
+        return true;
+    }else return false;
+}
 
-const growRight = () => animate("grow-right", "shrink-right");
-const growLeft = () => animate("grow-left", "shrink-left");
-const growUp = () => animate("grow-up", "shrink-up");
-const growDown = () => animate("grow-down", "shrink-down");
+// Toggle animation classes based on the current state
 
-//functions
-
-function animate(grow,shrink){
-    if (box.classList.contains(grow) && !(box.classList.contains(shrink)) ){
-        box.classList.remove(grow);
-        box.classList.add(shrink);
-    }
-    else if (box.classList.contains(shrink) && !(box.classList.contains(grow)) ){
-        box.classList.add(grow);
-        box.classList.remove(shrink)
-    }else if (!(box.classList.contains(shrink)) && !(box.classList.contains(grow)) ){
-        box.classList.add(grow);
+function toggleAnimation() {
+    const directionAvailable = checkDirection();
+    if ( directionAvailable === false){
+        animationDirection = getRandomDirection();
+            box.classList.remove('shrink-right', 'shrink-up', 'shrink-down', 'shrink-left');
+            box.classList.add(animationDirection);
+            box.classList.remove('original');
+    }else{
+        if (!(box.classList.contains('original'))){
+            box.classList.remove('shrink-up', 'shrink-down', 'shrink-left', 'shrink-right');
+            if(animationDirection==='grow-up'){
+                box.classList.remove('grow-up');
+                box.classList.add('shrink-up');
+                box.classList.add('original');
+                } 
+            else if(animationDirection=== 'grow-down'){
+                box.classList.remove('grow-down');
+                box.classList.add('shrink-down');
+                box.classList.add('original');
+                } 
+            else if(animationDirection==='grow-left'){
+                box.classList.remove('grow-left');
+                box.classList.add('shrink-left');
+                box.classList.add('original');
+                } 
+            else if(animationDirection==='grow-right'){
+                box.classList.remove('grow-right');
+                box.classList.add('shrink-right');
+                box.classList.add('original');
+                }   
+            animationDirection =""; //reset
+        }
     }
 }
 
 
-function removeAllClassesExceptOne(keepClass) {
-    const classNames = box.className.split(' ');
-    for (let i = classNames.length - 1; i >= 0; i--) {
-      if (classNames[i] !== keepClass) {
-        box.classList.remove(classNames[i]);
-      }
-    }
-  }
-
-
-
-//event listner
-
-trigger.addEventListener('click',function(){
-    let rand = Math.floor(Math.random() * 2);
-    growUp();
-})
-
-
+// Event listener
+trigger.addEventListener('click', toggleAnimation);
