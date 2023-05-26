@@ -12,15 +12,14 @@ body{
     display: grid;
     place-content: center;
 }
-
 /* styles */
 .box {
     height: 100px;
     width: 100px;
     background-color: blueviolet;
   }
-
-  .trigger:hover{
+  
+  .trigger:hover {
     cursor: pointer;
   }
   
@@ -29,56 +28,38 @@ body{
     width: 100px;
   }
   
-  .grow-right {
-    animation: growRight 1s forwards;
-    animation-timing-function: ease-in-out;
-  }
-  
-  .shrink-right {
-    animation: shrink 1s forwards;
-    animation-timing-function: ease-in-out;
-  }
-
   .grow-left {
     animation: growLeft 1s forwards;
     animation-timing-function: ease-in-out;
   }
   
   .shrink-left {
-    animation: shrink 1s forwards;
+    animation:  shrinkLeft  1s backwards;
     animation-timing-function: ease-in-out;
   }
   
   /* keyframes */
   
-  @keyframes growRight {
-    0% {
-      width: 100px;
-      height: 100px;
-    }
-    100% {
-      width: 500px;
-      transform-origin: left;
-    }
-  }
-
   @keyframes growLeft {
     0% {
       width: 100px;
       height: 100px;
+      transform: translateX(0);
     }
     100% {
       width: 500px;
-      transform-origin: right;
+      transform: translateX(-400px);
     }
   }
   
-  @keyframes shrink {
+  @keyframes shrinkLeft {
     0% {
       width: 500px;
-      height: 100px;
+      transform: translateX(-400px);
     }
     100% {
       width: 100px;
+      transform: translateX(0);
     }
   }
+  
