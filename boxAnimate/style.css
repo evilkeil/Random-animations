@@ -38,6 +38,16 @@ body{
     animation: shrink 1s forwards;
     animation-timing-function: ease-in-out;
   }
+
+  .grow-left {
+    animation: growLeft 1s forwards;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .shrink-left {
+    animation: shrink 1s forwards;
+    animation-timing-function: ease-in-out;
+  }
   
   /* keyframes */
   
@@ -49,6 +59,17 @@ body{
     100% {
       width: 500px;
       transform-origin: left;
+    }
+  }
+
+  @keyframes growLeft {
+    0% {
+      width: 100px;
+      height: 100px;
+    }
+    100% {
+      width: 500px;
+      transform-origin: right;
     }
   }
   
